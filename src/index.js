@@ -13,6 +13,8 @@ searchInput.addEventListener('input', debounce(getCountryData, DEBOUNCE_DELAY));
 
 function getCountryData(e) {
   const countryName = e.target.value.trim();
+  cleanMarkup(countryList);
+  cleanMarkup(countryInfo);
   if (!countryName) {
     return;
   }
@@ -59,6 +61,10 @@ fetchCountries(countryName)
     })
     }
 
+
+function cleanMarkup(element) {
+  element.innerHTML = '';
+}
     
 
 
