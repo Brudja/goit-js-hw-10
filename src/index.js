@@ -52,13 +52,13 @@ fetchCountries(countryName)
     
 
     function markupCountries(countryData){
-    
-    countryData.map(country => {
-      const {flags, name} = country;
-      return countryList.insertAdjacentHTML("beforeend", 
-      `<li class=list><img src=${flags.svg} width = "30"/>
-      <spantext>${name.official}</span></li>`)
-    })
+    const markUp = countryData.map(country => {
+      const {flags, name} = country;  
+      return `<li class=list><img src=${flags.svg} width = "30"/>
+      <spantext>${name.official}</span></li>`
+    }).join("")
+    countryList.insertAdjacentHTML("beforeend",markUp)
+    console.log(markUp)
     }
 
 
